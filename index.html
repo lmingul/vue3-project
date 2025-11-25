@@ -1,0 +1,119 @@
+<!--
+ * @Author: lmingul
+ * @Date: 2025-11-23 02:13:54
+ * @LastEditors: lmingul
+ * @LastEditTime: 2025-11-25 18:40:47
+ * @FilePath: \font-test\vu3-test\index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vue 3 Test</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div id="myApp">
+        <!-- 动态样式 -->
+         <div>
+             <div class="demo" :class="dynamicStyle" @click="clickBox('A')">  </div>
+               <div class="demo" :class="{active: boxB}" @click="clickBox('B')">  </div>
+                 <div class="demo" :class="{active: boxC}" @click="clickBox('C')">  </div>
+         </div>
+
+
+      <!-- 文本插值 -->
+      <p>{{courGoalA}}</p>
+      <!-- 属性插值 -->
+      <a :href="vuelonk" target="_blank" rel="noopener noreferrer">Vue 官方</a>
+      <p>{{ outputGloal() }}</p>
+      <p v-html="htmlContent"></p>
+
+      <div>
+          <h3>任务一</h3>
+        <section>
+          <h2>my name is: {{name}}</h2>
+          <p>my age is:{{age}}</p>
+          <p>{{age + 5}}</p>
+          <p>my favotite number :{{ mynumber}}</p>
+          <p>{{mynumberFun()}}</p>
+          <img :src="src" />
+          <br />
+          <input type="text" v-model="name" />
+        </section>
+      </div>
+
+      <div>
+        <input type="text" v-on:input="setName($event,'lastname')"></input>
+        <p>name: {{lastname}}</p>
+        <!-- 内置修饰符 -->
+      </div>
+
+      <div>
+        <h3>任务二</h3>
+        <section>
+            <button v-on:click="buttonClick">show alert</button>
+             <br />
+
+            <input type="text" v-on:input="changeValue($event)"></input>
+
+            <p>输入的值： {{ inputValue }}</p>
+
+            <br />
+            <input type="text" v-on:keyup.enter="enterchangeValue"><input>
+            <input type="text" v-on:input="changeValue($event)" 
+            v-on:keyup="enterchangeValue"></input>
+            ===
+            <input v-model="inputValue"></input>
+            <p>enter键按下时出现的值: {{enterValue}}</p>
+        </section>
+      </div>
+
+      <div>
+        <h3>任务三</h3>
+        <section>
+            <button @click="buttonClick(5)">Add 5</button>
+            <button @click="buttonClick(1)">Add 1</button>
+
+            <p>Result: {{Result}}</p>
+
+            
+        </section>
+      </div>
+
+      <!-- <div>
+        <ul class="tree-node">
+          <li v-for="(item, index) in node" :key="item.value">
+            <img :src="(isShowTree && clickNode1===item.value )?src:src2" />
+            <span @click="showTree(item,'01')">{{item.label}}</span>
+
+            <ul
+              v-show="item.children && item.children.length && isShowTree && clickNode1===item.value"
+            >
+              <li v-for="(item1, index) in item.children" :key="item1.value">
+                <span></span>
+                <span @click="showTree(item1,'02')">{{item1.label}}</span>
+
+                <ul
+                  v-show="item1.children && item1.children.length && isShowTree2 && clickNode2===item1.value"
+                >
+                  <li
+                    v-for="(item2, index) in item.children"
+                    :key="item2.value"
+                  >
+                    <span></span>
+                    <span @click="showTree(item2,'03')">{{item2.label}}</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div> -->
+    </div>
+  </body>
+</html>
