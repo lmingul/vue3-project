@@ -2,8 +2,8 @@
  * @Author: lmingul
  * @Date: 2025-11-23 02:13:54
  * @LastEditors: lmingul
- * @LastEditTime: 2025-11-25 18:40:47
- * @FilePath: \font-test\vu3-test\index.html
+ * @LastEditTime: 2025-11-26 23:52:59
+ * @FilePath: \font-test\vue3-project\index.html
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -17,14 +17,44 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <div id="myApp">
-        <!-- 动态样式 -->
-         <div>
-             <div class="demo" :class="dynamicStyle" @click="clickBox('A')">  </div>
-               <div class="demo" :class="{active: boxB}" @click="clickBox('B')">  </div>
-                 <div class="demo" :class="{active: boxC}" @click="clickBox('C')">  </div>
-         </div>
+    <!-- 练习项目 -->
+     <div id="myApp">
+      <button @click="showProject('base')" class="button">基础练习项目</button>
+       <button @click="showProject('monterSlayer')" class="button">打怪兽项目</button>
+        <button @click="showProject('tree')" class="button">tree组件练习</button>
 
+        <br />
+
+        <div v-if="showWhitchTeam==='monterSlayer'">
+          <h2>打怪兽项目</h2>
+        </div>
+        <!-- 贴图已保存，明天上班的时候练习 -->
+
+
+        <div v-if="showWhitchTeam==='base'">
+  <!-- 条件渲染练习 -->
+      <div>
+        <h2>Assignment</h2>
+        <input type="test" v-model="taskValue">
+        <button @click="addTask">Add Task</button>
+
+        <ul v-show="isShow">
+          <li v-for="(task,index) in taskList" :key="task.id">
+            <span>{{ task.value }}</span>
+          </li>
+    
+        </ul>
+
+        <button @click="isShowUl">{{buttonShowText}}</button>
+      </div>
+
+
+      <!-- 动态样式 -->
+      <div>
+          <div class="demo" :class="dynamicStyle" @click="clickBox('A')"></div>
+          <div class="demo" :class="{active: boxB}" @click="clickBox('B')"></div>
+          <div class="demo" :class="{active: boxC}" @click="clickBox('C')"></div>
+      </div>
 
       <!-- 文本插值 -->
       <p>{{courGoalA}}</p>
@@ -58,11 +88,8 @@
         <section>
             <button v-on:click="buttonClick">show alert</button>
              <br />
-
             <input type="text" v-on:input="changeValue($event)"></input>
-
             <p>输入的值： {{ inputValue }}</p>
-
             <br />
             <input type="text" v-on:keyup.enter="enterchangeValue"><input>
             <input type="text" v-on:input="changeValue($event)" 
@@ -78,14 +105,14 @@
         <section>
             <button @click="buttonClick(5)">Add 5</button>
             <button @click="buttonClick(1)">Add 1</button>
-
             <p>Result: {{Result}}</p>
-
-            
         </section>
       </div>
 
-      <!-- <div>
+        </div>
+
+           <!-- tree组件练习 -->
+      <div v-if="showWhitchTeam==='tree'">
         <ul class="tree-node">
           <li v-for="(item, index) in node" :key="item.value">
             <img :src="(isShowTree && clickNode1===item.value )?src:src2" />
@@ -113,7 +140,8 @@
             </ul>
           </li>
         </ul>
-      </div> -->
-    </div>
+      </div>
+     </div>
+
   </body>
 </html>

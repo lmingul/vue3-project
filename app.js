@@ -1,6 +1,11 @@
 const app = Vue.createApp({
   data() {
     return {
+      showWhitchTeam: "base",
+
+      taskValue: "",
+      taskList: [],
+      isShow: true,
       courGoalA: "Learn Vue 3 fundamentals",
       courGoalB: "Learn Vue 3 fundamentals",
       vuelonk: "https://vuejs.org/",
@@ -70,11 +75,13 @@ const app = Vue.createApp({
         return "太大了！";
       }
     },
+    buttonShowText() {
+      return this.isShow ? "显示列表" : "隐藏列表";
+    },
   },
   watch: {
     Result() {
       const that = this;
-
       setTimeout(() => {
         that.number = 0;
       }, 5000);
@@ -82,6 +89,18 @@ const app = Vue.createApp({
   },
 
   methods: {
+    showProject(type) {
+      this.showWhitchTeam = type;
+    },
+    addTask() {
+      this.taskList.push({
+        value: this.taskValue,
+        id: Math.random().toString() + 1,
+      });
+    },
+    isShowUl() {
+      this.isShow = !this.isShow;
+    },
     clickBox(type) {
       if (type === "A") {
         this.boxA = !this.boxA;
