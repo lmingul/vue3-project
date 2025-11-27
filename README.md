@@ -2,7 +2,7 @@
  * @Author: lmingul
  * @Date: 2025-11-25 18:46:45
  * @LastEditors: lmingul
- * @LastEditTime: 2025-11-27 23:51:42
+ * @LastEditTime: 2025-11-28 02:20:36
  * @FilePath: \font-test\vue3-project\README.md
  * @Description:
 -->
@@ -15,9 +15,9 @@
 
 > 课程开始学习日期： 2025-11-23，争取 2025-11-30 学完
 
-### 插值
+## 插值
 
-### 方法
+## 方法
 
 ## 动态样式（Dynamic Styling）
 
@@ -108,7 +108,44 @@ console.log("unmounted: 实例销毁之后调用");
 
 ## 组件 components
 
-#### console 的类型
+app.component('components-test',{
+
+data(){
+return{
+
+    }
+
+},
+methods:{
+
+}
+
+})
+
+标识符（组件名称，通常是 firends-conteft 的格式） + 配置对象
+
+## Vue cli
+
+访问网站在服务器上运行
+网络服务器 development web server http https
+
+cli.vuejs.org
+
+### node.js
+
+### npm 打包管理器 packaged manager
+
+## console 的类型
+
+```
+<!-- 安装cli -->
+npm install -g @vue/cli
+
+<!-- 创建项目 -->
+vue create vue-first-app
+
+
+```
 
 - 快速打印变量：console.log/info
 - 警告 / 错误定位：console.warn/error（带调用栈）
