@@ -248,5 +248,37 @@ const app = Vue.createApp({
       this.number = data === 5 ? this.number + data : this.number - 1;
     },
   },
+
+  // 生命周期的运用
+  beforeCreate() {
+    console.log("beforeCreate: 实例被创建，数据观测和事件配置尚未开始");
+  },
+  created() {
+    console.log("created: 实例已经创建，数据观测和事件配置已经完成");
+  },
+  beforeMount() {
+    console.log("beforeMount: el 被新创建的 vm.$el 替换之前调用");
+  },
+  mounted() {
+    console.log("mounted: el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用");
+  },
+  beforeUpdate() {
+    console.log(
+      "beforeUpdate: 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前"
+    );
+  },
+  updated() {
+    console.log("update: 由于数据更改，虚拟 DOM 重新渲染和打补丁之后调用");
+  },
+  beforeUnmount() {
+    console.log("beforeUnmount: 实例销毁之前调用");
+  },
+  unmounted() {
+    console.log("unmounted: 实例销毁之后调用");
+  },
 });
 app.mount("#myApp");
+
+// setTimeout(() => {
+//   app.unmount("#myApp");
+// }, 5000);
