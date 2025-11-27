@@ -2,7 +2,7 @@
  * @Author: lmingul
  * @Date: 2025-11-25 18:46:45
  * @LastEditors: lmingul
- * @LastEditTime: 2025-11-28 02:20:36
+ * @LastEditTime: 2025-11-28 02:44:30
  * @FilePath: \font-test\vue3-project\README.md
  * @Description:
 -->
@@ -108,21 +108,18 @@ console.log("unmounted: 实例销毁之后调用");
 
 ## 组件 components
 
+标识符（组件名称，通常是 firends-conteft 的格式） + 配置对象
+
+```
 app.component('components-test',{
-
 data(){
-return{
-
-    }
-
+return{}
 },
 methods:{
-
 }
-
 })
 
-标识符（组件名称，通常是 firends-conteft 的格式） + 配置对象
+```
 
 ## Vue cli
 
@@ -135,8 +132,6 @@ cli.vuejs.org
 
 ### npm 打包管理器 packaged manager
 
-## console 的类型
-
 ```
 <!-- 安装cli -->
 npm install -g @vue/cli
@@ -144,8 +139,11 @@ npm install -g @vue/cli
 <!-- 创建项目 -->
 vue create vue-first-app
 
-
 ```
+
+> 学习日期： 2025-11-28，进度 81 ,开始正式的 vue3 项目搭建与学习
+
+## console 的类型
 
 - 快速打印变量：console.log/info
 - 警告 / 错误定位：console.warn/error（带调用栈）
