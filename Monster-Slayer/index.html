@@ -1,0 +1,87 @@
+<!--
+ * @Author: lmingul
+ * @Date: 2025-11-23 02:13:54
+ * @LastEditors: lmingul
+ * @LastEditTime: 2025-11-28 01:04:32
+ * @FilePath: \font-test\vue3-project\Monster-Slayer\index.html
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>play-monster</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- 练习项目 -->
+    <div id="myApp">
+      <div>
+        <h2>打怪兽项目</h2>
+        <div class="box-play-monster">
+          <div class="health-box">
+            <p>怪兽经验值{{monsterHealth}}</p>
+            <div class="health-value-all">
+              <div
+                class="health-value"
+                :style="{width:monsterHealth + '%'}"
+              ></div>
+            </div>
+          </div>
+          <div class="health-box">
+            <p>玩家经验值{{playerHealth}}</p>
+            <div class="health-value-all">
+              <div
+                class="health-value"
+                :style="{width:playerHealth + '%'}"
+              ></div>
+            </div>
+          </div>
+          <!-- 游戏结果 -->
+          <div class="game-result" v-if="winner !== null">
+            <p v-if="winner === 'monster'">怪兽获胜!</p>
+            <p v-if="winner === 'playser'">玩家获胜!</p>
+            <p v-if="winner === 'draw'">游戏平局！</p>
+            <button @click="reartGame" class="restart-button">
+              重新开始游戏
+            </button>
+          </div>
+
+          <div class="button-list" v-if="winner === null">
+            <button @click="attack">攻击</button>
+            <button @click="specileAttack">魔法攻击</button>
+            <button
+              @click="healClick"
+              :disabled="attackCount % 3 !==0"
+              :class="{disabledbutton: attackCount % 3 !==0 }"
+            >
+              回血
+            </button>
+            <button @click="surrender">投降</button>
+          </div>
+
+          <div class="operation-log">
+            <h3>操作日志</h3>
+            <ul v-if="operationLogs.length !== 0">
+              <li
+                v-for="(item,index) in operationLogs"
+                :key="`${index-item.value-item.who}`"
+              >
+                <span :class="item.who==='player'?'log-player':'log-monster'">
+                  {{item.who==='player'?'玩家':'怪兽'}}</span
+                >
+                进行了
+                <span>{{item.what}}</span>
+                , 经验值
+                <span>{{item.value}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -2,7 +2,7 @@
  * @Author: lmingul
  * @Date: 2025-11-25 18:46:45
  * @LastEditors: lmingul
- * @LastEditTime: 2025-11-27 17:06:26
+ * @LastEditTime: 2025-11-27 23:51:42
  * @FilePath: \font-test\vue3-project\README.md
  * @Description:
 -->
@@ -105,6 +105,8 @@ unmounted() {
 console.log("unmounted: 实例销毁之后调用");
 },
 ```
+
+## 组件 components
 
 #### console 的类型
 
