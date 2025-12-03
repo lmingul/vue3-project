@@ -2,8 +2,8 @@
  * @Author: lmingul
  * @Date: 2025-11-23 02:13:54
  * @LastEditors: lmingul
- * @LastEditTime: 2025-11-28 01:02:10
- * @FilePath: \font-test\vue3-project\index.html
+ * @LastEditTime: 2025-12-03 16:20:35
+ * @FilePath: \font-test\vue3-project\vue-first-test\index.html
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -100,10 +100,10 @@
         </div>
 
            <!-- tree组件练习 -->
-      <div v-if="showWhitchTeam==='tree'">
+      <div >
         <ul class="tree-node">
           <li v-for="(item, index) in node" :key="item.value">
-            <img :src="(isShowTree && clickNode1===item.value )?src:src2" />
+            <img  />
             <span @click="showTree(item,'01')">{{item.label}}</span>
 
             <ul

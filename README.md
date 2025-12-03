@@ -2,7 +2,7 @@
  * @Author: lmingul
  * @Date: 2025-11-25 18:46:45
  * @LastEditors: lmingul
- * @LastEditTime: 2025-11-28 02:44:30
+ * @LastEditTime: 2025-12-03 18:25:39
  * @FilePath: \font-test\vue3-project\README.md
  * @Description:
 -->
@@ -141,7 +141,91 @@ vue create vue-first-app
 
 ```
 
-> 学习日期： 2025-11-28，进度 81 ,开始正式的 vue3 项目搭建与学习
+> 学习日期： 2025-11-28，进度 82 ,开始正式的 vue3 项目搭建与学习
+
+## 构建工作流程 Using a Build Workflow
+
+our code -> build step -> development or real server
+将我们的代码编译为浏览器能读懂的 JavaScript 代码
+
+> 学习日期： 2025-11-30，进度 86 ,开始正式的 vue3
+
+### components
+
+可复用组件
+
+#### props 核心概念
+
+properties 属性的缩写
+亲子交流 父子组件 parent to the child component
+通常不应该被改变，单向数据流，如果要改变，可新建一个 data 值，将 prop 中的值赋值给它
+
+```
+<!-- 组件用小驼峰命名法 -->
+<firends :name="candy" :phone-number="9843349-489-7876" :email-adress="8344833@163.com"><firends/>
+<!-- 帕斯卡命名法，无破折号 -->
+props:[
+name:"",
+phoneNumber:"",
+emailAdress:"",
+]
+
+<!-- 确定值类型,是否必须  string boolean -->
+props:{
+  name:String,
+  data:{
+    type:String,
+    require:true,// 是否必须
+
+  },
+  number:{
+    type: String,
+    require:false,
+    default:'0',
+    validator: function(value){
+    return  value === 1 || valaue === 2
+    }
+
+  }
+}
+```
+
+自定义组件时，for 循环中 key 是必须的
+
+监听事件 子组件到父组件
+
+```
+this.$emit('toggle-click'，this.name)
+事件名称，传递参数
+
+<firends  @toggle-click="toggleClick" :name="candy" :phone-number="9843349-489-7876" :email-adress="8344833@163.com"><firends/>
+
+
+methods:{
+  toggleClick(name){
+
+  }
+}
+```
+
+emits 记录事件，理解组件所作的事
+
+> 学习日期： 2025-12-3，进度 86 ,开始正式的 vue3
+
+```
+<stript>
+export default{
+  emits:['toggle-click'],
+   <!-- emits；{
+    'toggle-click':function(id){
+    } -->
+   }
+
+}
+
+</stript>
+
+```
 
 ## console 的类型
 

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>考核复评工作汇报</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <!-- HUD Elements -->
+    <div class="hud-corner tl"></div>
+    <div class="hud-corner tr"></div>
+    <div class="hud-corner bl"></div>
+    <div class="hud-corner br"></div>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="slide-counter" id="slideCounter">01 / 08</div>
+    <div class="nav-hint">Use Arrow Keys or Space to Navigate</div>
+
+    <!-- Slides -->
+    <div class="slides-container">
+      <!-- Slide 1: Cover -->
+      <section class="slide active" data-index="0">
+        <div style="text-align: center">
+          <div class="tech-tag fade-in-up">PERFORMANCE REVIEW 2023</div>
+          <h1 class="fade-in-up delay-1">中级前端开发<br />考核复评工作汇报</h1>
+          <div class="subtitle fade-in-up delay-2">
+            <span style="margin-right: 20px">述职人: 张三</span>
+            <span>日期: 2023-10</span>
+          </div>
+          <div class="fade-in-up delay-3" style="margin-top: 40px">
+            <button class="btn" onclick="nextSlide()">开始汇报</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 2: Personal Info -->
+      <section class="slide" data-index="1">
+        <h2>个人简介 / PROFILE</h2>
+        <div class="content-grid">
+          <div class="card fade-in-up delay-1">
+            <h3>基本信息</h3>
+            <ul style="list-style: none">
+              <li><strong>姓名：</strong> 张三</li>
+              <li><strong>年龄：</strong> 28岁</li>
+              <li><strong>职位：</strong> 中级前端开发工程师</li>
+              <li><strong>学历：</strong> 本科 / 计算机科学与技术</li>
+              <li><strong>工龄：</strong> 5年 (当前公司2年)</li>
+            </ul>
+          </div>
+          <div class="card fade-in-up delay-2">
+            <h3>核心技能栈</h3>
+            <div>
+              <span class="tech-tag">Vue.js 3</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">TypeScript</span>
+              <span class="tech-tag">ECharts</span>
+              <span class="tech-tag">Three.js</span>
+              <span class="tech-tag">Webpack/Vite</span>
+              <span class="tech-tag">Node.js</span>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9rem">
+              专注于数据可视化大屏开发与复杂后台管理系统架构设计，具备良好的代码规范与组件化思维。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: Work Experience -->
+      <section class="slide" data-index="2">
+        <h2>工作经历 / EXPERIENCE</h2>
+        <div
+          class="card fade-in-up delay-1"
+          style="height: 100%; overflow-y: auto"
+        >
+          <div class="timeline-item">
+            <h3>2021.10 - 至今 | 某某科技有限公司</h3>
+            <p><strong>职位：</strong> 中级前端开发</p>
+            <p>
+              负责公司核心能源管理平台的前端架构升级与业务开发，主导了线损监测与充电设施两大系统的重构工作。
+            </p>
+          </div>
+          <div class="timeline-item">
+            <h3>2018.07 - 2021.09 | 某某网络技术有限公司</h3>
+            <p><strong>职位：</strong> 前端开发工程师</p>
+            <p>
+              参与电商后台管理系统开发，负责订单模块与用户中心的前端实现，积累了丰富的中后台开发经验。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Project 1 -->
+      <section class="slide" data-index="3">
+        <h2>项目展示: 台区线损监测系统</h2>
+        <div class="content-grid">
+          <div class="fade-in-up delay-1">
+            <h3>项目背景</h3>
+            <p>
+              针对电力台区线损数据异常难以定位的问题，开发的一套实时监测与分析系统。
+            </p>
+            <h3 style="margin-top: 20px">主要职责</h3>
+            <ul>
+              <li>负责前端整体架构搭建 (Vue3 + Vite)</li>
+              <li>封装通用的拓扑图组件，实现台区层级可视化</li>
+              <li>优化海量数据表格渲染性能</li>
+            </ul>
+          </div>
+          <div class="card fade-in-up delay-2">
+            <h3>技术挑战 & 解决方案</h3>
+            <div style="margin-top: 10px">
+              <p>
+                <strong style="color: var(--primary-color)">难点：</strong>
+                拓扑图节点超过2000个时页面卡顿。
+              </p>
+              <p>
+                <strong style="color: var(--secondary-color)">方案：</strong>
+                引入 Canvas 替代 SVG 渲染，并配合虚拟滚动技术，渲染性能提升
+                300%。
+              </p>
+            </div>
+            <div style="margin-top: 20px">
+              <span class="tech-tag">Vue3</span>
+              <span class="tech-tag">AntV G6</span>
+              <span class="tech-tag">WebSocket</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: Project 2 -->
+      <section class="slide" data-index="4">
+        <h2>项目展示: 充电设施监测系统</h2>
+        <div class="content-grid">
+          <div class="card fade-in-up delay-1">
+            <h3>系统概况</h3>
+            <p>全省充电桩状态实时监控平台，集成GIS地图功能。</p>
+            <ul style="margin-top: 15px">
+              <li>集成高德地图API，实现聚合点位展示</li>
+              <li>实时告警弹窗机制</li>
+              <li>多维度数据报表导出功能</li>
+            </ul>
+          </div>
+          <div class="fade-in-up delay-2">
+            <h3>核心产出</h3>
+            <div class="highlight-box">
+              <div class="stat-box">
+                <span class="stat-number">10k+</span>
+                <span>接入设备数</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">ms级</span>
+                <span>状态响应</span>
+              </div>
+            </div>
+            <p style="margin-top: 20px">
+              通过WebWorker处理地图海量点位计算，避免主线程阻塞，保证了操作的流畅性。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 6: Project 3 -->
+      <section class="slide" data-index="5">
+        <h2>项目展示: 空调管理大屏</h2>
+        <div class="content-grid">
+          <div class="fade-in-up delay-1">
+            <h3>可视化大屏</h3>
+            <p>用于展示办公园区空调能耗与运行状态的指挥大屏。</p>
+            <p>
+              采用
+              <strong>Scale</strong>
+              方案进行屏幕适配，确保在不同分辨率大屏下无损展示。
+            </p>
+            <p style="margin-top: 10px">
+              使用了大量自定义 ECharts 图表与 CSS3 动效。
+            </p>
+          </div>
+          <div
+            class="card fade-in-up delay-2"
+            style="
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px dashed var(--primary-color);
+            "
+          >
+            <div style="text-align: center">
+              <div
+                style="
+                  font-size: 4rem;
+                  color: var(--primary-color);
+                  margin-bottom: 10px;
+                "
+              >
+                📊
+              </div>
+              <p>Data Visualization</p>
+              <span class="tech-tag">ECharts 5.0</span>
+              <span class="tech-tag">Flex Layout</span>
+              <span class="tech-tag">CSS3 Animations</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 7: Achievements & Challenges -->
+      <section class="slide" data-index="6">
+        <h2>技术亮点与难点攻克 / HIGHLIGHTS</h2>
+        <div class="highlight-box fade-in-up delay-1">
+          <div class="stat-box">
+            <h3 style="color: var(--primary-color)">组件库建设</h3>
+            <p style="font-size: 0.9rem">
+              沉淀业务组件 20+ 个，包含复杂筛选器、动态表单等，团队开发效率提升
+              40%。
+            </p>
+          </div>
+          <div class="stat-box">
+            <h3 style="color: var(--primary-color)">性能优化</h3>
+            <p style="font-size: 0.9rem">
+              首屏加载时间从 3s 优化至 1.2s (资源压缩、路由懒加载、HTTP2)。
+            </p>
+          </div>
+          <div class="stat-box">
+            <h3 style="color: var(--primary-color)">工程化</h3>
+            <p style="font-size: 0.9rem">
+              配置自动化部署流程 (CI/CD)，规范 Git 提交与代码 Lint 规则。
+            </p>
+          </div>
+        </div>
+        <div class="card fade-in-up delay-2" style="margin-top: 30px">
+          <h3>典型难点：复杂表单联动与校验</h3>
+          <p>
+            <strong>问题：</strong>
+            业务中存在大量动态嵌套表单，逻辑复杂，维护困难。
+          </p>
+          <p>
+            <strong>解决：</strong> 设计基于 JSON Schema
+            的表单生成器，将逻辑与视图分离，大幅降低维护成本。
+          </p>
+        </div>
+      </section>
+
+      <!-- Slide 8: Future Outlook -->
+      <section class="slide" data-index="7">
+        <h2>未来规划 / FUTURE</h2>
+        <div class="content-grid">
+          <div class="card fade-in-up delay-1">
+            <h3>短期目标 (1年内)</h3>
+            <ul>
+              <li>深入掌握 WebGL/Three.js 技术，提升3D可视化开发能力。</li>
+              <li>持续完善团队内部组件库，编写详细文档。</li>
+              <li>考取高级前端开发相关认证。</li>
+            </ul>
+          </div>
+          <div
+            class="card fade-in-up delay-2"
+            style="border-color: var(--accent-color)"
+          >
+            <h3 style="color: var(--accent-color)">长期展望 (3年内)</h3>
+            <ul>
+              <li>向架构师方向发展，具备独立设计大型前端系统的能力。</li>
+              <li>关注前端智能化 (AI + Code) 趋势，探索提效新工具。</li>
+              <li>培养新人，提升团队整体技术氛围。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: Thank You -->
+      <section class="slide" data-index="8">
+        <div style="text-align: center">
+          <h1 class="fade-in-up">感谢聆听</h1>
+          <h2 style="border: none" class="fade-in-up delay-1">Q & A</h2>
+          <p class="fade-in-up delay-2">请各位领导、同事批评指正</p>
+          <div style="margin-top: 50px" class="fade-in-up delay-3">
+            <button class="btn" onclick="goToSlide(0)">返回首页</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="btn" onclick="prevSlide()">PREV</button>
+      <button class="btn" onclick="nextSlide()">NEXT</button>
+    </div>
+  </body>
+</html>
