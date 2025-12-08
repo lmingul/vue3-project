@@ -2,7 +2,7 @@
  * @Author: lmingul
  * @Date: 2025-12-03 17:52:18
  * @LastEditors: lmingul
- * @LastEditTime: 2025-12-03 18:16:20
+ * @LastEditTime: 2025-12-04 15:11:19
  * @FilePath: \font-test\vue3-project\vue-first-app\src\components\EasyTreeNew.vue
  * @Description: 
 -->
@@ -73,6 +73,7 @@ ul {
   list-style: none;
 }
 .expanded {
+  display: inline-block;
   transform: rotate(90deg);
   color: aqua;
 }

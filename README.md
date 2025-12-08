@@ -2,7 +2,7 @@
  * @Author: lmingul
  * @Date: 2025-11-25 18:46:45
  * @LastEditors: lmingul
- * @LastEditTime: 2025-12-03 18:25:39
+ * @LastEditTime: 2025-12-08 20:46:34
  * @FilePath: \font-test\vue3-project\README.md
  * @Description:
 -->
@@ -210,8 +210,6 @@ methods:{
 
 emits 记录事件，理解组件所作的事
 
-> 学习日期： 2025-12-3，进度 86 ,开始正式的 vue3
-
 ```
 <stript>
 export default{
@@ -226,6 +224,186 @@ export default{
 </stript>
 
 ```
+
+> 学习日期： 2025-12-3，进度 99 ,编写 tree 树组件，整理模块
+
+## provide he inject
+
+一种可用于在一个地方提供数据的模式，并注入它，并使用它
+默认通信机制
+
+```
+provide:{
+topics:[]
+}
+
+<!-- 响应式变化 -->
+provide(){
+  return {
+    topics: this.topics,
+  }
+
+},
+
+inject:['topics'],// 提供数组
+
+```
+
+### 方法
+
+```
+<template>
+<li>
+<button></button>
+<li>
+
+</template>
+
+<script>
+
+<script>
+```
+
+## Diving Deeper into Components
+
+深入了解组件
+
+## Slots && 动态组件
+
+> 学习日期： 2025-12-8，进度 107
+
+### 全局组件
+
+```
+app.component("base-badge", BaseBadge);
+
+```
+
+### 局部注册 local Components
+
+保持主 js 文件简洁
+
+```
+
+import TheHeader from "./components/BadgeComponts/TheHeader.vue";
+
+components: { TheHeader },
+
+```
+
+### scope 样式隔离
+
+防止样式污染，作用域
+
+```
+<style scoped>
+header {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #14005e;
+}
+
+header h1 {
+  color: white;
+  margin: 0;
+}
+</style>
+
+```
+
+### slot 插槽
+
+允许从组件外部接受有可能使用视图功能的 html 内容，就向 props 一样，但是 props 是用来存储数据的，
+
+```
+<template>
+   <div>
+    <header>
+    <!-- 具名插槽 -->
+      <slot name="header"></slot>
+    </header>
+    <slot></slot>
+  </div>
+</template>
+
+```
+
+**使用**
+
+```
+ <base-card>
+      <template v-slot:header>
+        <h2>Available Badges</h2>
+      </template>
+     <template v-slot:default>
+      <ul>
+        <li>
+          <base-badge type="admin" caption="ADMIN"></base-badge>
+        </li>
+        <li>
+          <base-badge type="author" caption="AUTHOR"></base-badge>
+        </li>
+      </ul>
+     </template>
+</base-card>
+
+```
+
+未命名的插槽成为默认插槽，可以允许有多个插槽，但是默认插槽只能有一个
+简写为#
+
+```
+ <base-card>
+      <template #header>
+        <h2>Available Badges</h2>
+      </template>
+     <template #default>
+      <ul>
+        <li>
+          <base-badge type="admin" caption="ADMIN"></base-badge>
+        </li>
+        <li>
+          <base-badge type="author" caption="AUTHOR"></base-badge>
+        </li>
+      </ul>
+     </template>
+</base-card>
+
+```
+
+查看数据
+
+console.log(this.$slots);
+
+### scoped slots 作用域插槽
+
+从定义插槽的组件内部传递数据，
+
+slotProps
+
+```
+<template>
+  <div>
+    <header v-if="$slots.header">
+      <slot name="header"></slot>
+    </header>
+
+    <slot name="nameList" :datas="name" another-prop="..."></slot>
+    <slot></slot>
+  </div>
+</template>
+
+      <template #nameList="slotProps">
+        <p>{{ slotProps.datas }} {{ slotProps["another-prop"] }}</p>
+        <p>{{ slotProps["another-prop"] }}</p>
+      </template>s
+
+```
+
+> 学习日期： 2025-12-8，进度 114 学习结束
 
 ## console 的类型
 
